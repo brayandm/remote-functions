@@ -1,4 +1,5 @@
 from client import run
+import random
 
 
 class Wallet:
@@ -24,6 +25,21 @@ def hello(me: Person):
     return f"Hello, {me.get_info()}"
 
 
-me = Person("John", 30, Wallet(100))
+@run("localhost")
+def random_guess():
+
+    maxi = 1000000
+
+    hide = random.randint(1, maxi)
+
+    while random.randint(1, maxi) != hide:
+        continue
+
+    return hide
+
+
+me = Person("John", 30, Wallet(101))
 
 print(hello(me))
+
+print(random_guess())
